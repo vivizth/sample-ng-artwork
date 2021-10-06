@@ -1,0 +1,35 @@
+<form [formGroup]="form">
+  <div>
+    Filter:  
+    <div formArrayName="filter">
+      <ng-container *ngFor="let f of ff.controls; index as i">
+        <label>
+          <input type="checkbox" [formControlName]="i" value="filter[i]?.key"> {{filterList[i]?.key}} ( {{filterList[i]?.count}})
+        </label>
+      </ng-container> 
+    </div>
+  </div>
+  <div>
+      Sort:
+    <input formControlName="sort"/>
+  </div>
+</form>
+<ng-container *ngIf="artworks$ | async as art">
+  <div *ngIf="art" class="list">
+    <div *ngFor="let a of art; trackBy: trackByFn" class="item">
+      <h3>{{a?.title}} by {{a?.artist}}</h3>
+      <div>{{a?.style || '-'}}</div>
+      <img [src]="a?.img" height="200" loading="lazy"/>
+    </div>
+  </div>
+</ng-container>
+
+<div class="flex">
+  <div *ngFor="let p of (pagination$ | async)" class="page" (click)="goTo(p.number)" [class.active]="p?.active">
+    {{p?.number  || '...'}}
+  </div>
+</div>
+
+<div class="loading" *ngIf="loading.loading$ | async">
+  Loading...
+</div>

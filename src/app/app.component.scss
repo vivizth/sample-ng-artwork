@@ -1,0 +1,38 @@
+.list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1%;
+}
+.item {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+.flex {
+    display: flex;
+}
+.page {
+    margin: 12px;
+}
+.active {
+    color: blue;
+    background:chartreuse;
+    padding: 5px;
+    font-weight: bold;
+}
+
+.loading {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    justify-content: center;
+    align-items: center;
+}
+label {
+    border: 1px solid burlywood;
+    margin: 8px;
+}
