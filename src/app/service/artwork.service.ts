@@ -33,6 +33,6 @@ export class ArtworkService {
   }
 
   get = (page: any) => {
-    return this.http.get<GetArtwork>(`${environment.baseUrl}/artworks?page=${page}&limit=100`)
+    return this.http.get<GetArtwork>(`${environment?.baseUrl}/artworks?page=${page}&limit=100`)
   }
 }
