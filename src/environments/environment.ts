@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrl: 'http://api.artic.edu/api/v1'
+  baseUrl: 'https://api.artic.edu/api/v1'
 };
 
 /*
