@@ -33,30 +33,6 @@ export class AppComponent implements OnInit {
     });
   }
 
-  toPagination = (data: GetArtwork) => {
-    const thisPage = data.pagination.current_page;
-    const totalPage = 51;
-    const p: any[] = [];
-
-    for(let num = thisPage - 9; num < thisPage ; num++) {
-      if(num <= 0) { continue; }
-      p.push({ number: num,active: num == thisPage });
-    }
-    for(let num = thisPage; num < thisPage + 9 ; num++) {
-      if(num >= totalPage) { continue; }
-      p.push({ number: num, active: num == thisPage });
-    }
-    if(thisPage >= 11){
-      p.unshift(null);
-      p.unshift({ number: 1} );
-    }
-    if(thisPage <= totalPage){
-      p.push(null);
-      p.push({ number: totalPage, active: thisPage == totalPage} );
-    }
-    return p;
-  }
-
   getFilterList = (data: GetArtwork) => {
     const filter = new Map();
     this.ff.clear();
